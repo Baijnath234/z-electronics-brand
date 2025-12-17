@@ -15,7 +15,7 @@ const Aboutpage = () => {
             wrap="nowrap"
           >
             {/* LEFT IMAGE */}
-            <Grid item sx={{ flex: 1 }}>
+            <Grid>
               <Box
                 sx={{
                   width: "100%",
@@ -38,7 +38,7 @@ const Aboutpage = () => {
             </Grid>
 
             {/* RIGHT CONTENT */}
-            <Grid item sx={{ flex: 1 }}>
+            <Grid >
               <Typography variant="h4" fontWeight={800} mb={2} color="#0f172a">
                 About Z Electronic
               </Typography>

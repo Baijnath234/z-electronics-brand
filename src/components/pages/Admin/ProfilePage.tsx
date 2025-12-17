@@ -76,7 +76,7 @@ export default function ProfilePage() {
 
             <Grid container spacing={3}>
               {/* Birthday */}
-              <Grid item xs={12} sm={6}>
+              <Grid>
                 <Paper
                   sx={{
                     p: 2,
@@ -96,7 +96,7 @@ export default function ProfilePage() {
               </Grid>
 
               {/* Joining Date */}
-              <Grid item xs={12} sm={6}>
+              <Grid >
                 <Paper
                   sx={{
                     p: 2,
@@ -116,7 +116,7 @@ export default function ProfilePage() {
               </Grid>
 
               {/* Working Grade */}
-              <Grid item xs={12} sm={6}>
+              <Grid >
                 <Paper
                   sx={{
                     p: 2,
@@ -136,7 +136,7 @@ export default function ProfilePage() {
               </Grid>
 
               {/* Employee ID */}
-              <Grid item xs={12} sm={6}>
+              <Grid >
                 <Paper
                   sx={{
                     p: 2,
@@ -156,7 +156,7 @@ export default function ProfilePage() {
               </Grid>
 
               {/* Address */}
-              <Grid item xs={12}>
+              <Grid >
                 <Paper
                   sx={{
                     p: 2,

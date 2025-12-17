@@ -156,7 +156,7 @@ export default function ProductPage() {
 
       {/* STAT CARDS */}
       <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -175,7 +175,7 @@ export default function ProductPage() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -194,7 +194,7 @@ export default function ProductPage() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,

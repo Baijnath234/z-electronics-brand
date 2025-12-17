@@ -6,6 +6,7 @@ import {
   IconButton,
   Button,
   Avatar,
+  Grid,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
@@ -15,7 +16,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { Flare } from "@mui/icons-material";
 
 export default function UserNavbar() {
   return (
@@ -97,7 +97,6 @@ export default function UserNavbar() {
       <Box sx={{ width: "100%", py: 10, background: "#ffffff" }}>
         <Box sx={{ maxWidth: 1400, mx: "auto", px: 2 }}>
           <Grid
-            container
             spacing={6}
             alignItems="center"
             direction="row"
@@ -106,9 +105,6 @@ export default function UserNavbar() {
           >
             {/* LEFT CONTENT */}
             <Grid
-              item
-              xs={12}
-              md={6}
               width={"100%"}
               sx={{ flex: 1, textAlign: "center" }}
             >
@@ -158,7 +154,7 @@ export default function UserNavbar() {
             </Grid>
 
             {/* RIGHT IMAGE */}
-            <Grid item xs={12} md={6}>
+            <Grid >
               <Box
                 sx={{
                   width: "100%",
@@ -169,7 +165,7 @@ export default function UserNavbar() {
                 }}
               >
                 <img
-                  src={Headphone}
+                  src={''}
                   alt="Expert Support"
                   style={{
                     width: "100%",

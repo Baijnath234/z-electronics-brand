@@ -77,7 +77,7 @@ export default function UserLanding() {
 
         <Grid container spacing={4}>
           {/* Earbuds */}
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid>
             <Paper
               elevation={5}
               sx={{
@@ -104,7 +104,7 @@ export default function UserLanding() {
           </Grid>
 
           {/* Earphones */}
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid>
             <Paper
               elevation={5}
               sx={{
@@ -131,7 +131,7 @@ export default function UserLanding() {
           </Grid>
 
           {/* Headphones */}
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid>
             <Paper
               elevation={5}
               sx={{
@@ -158,7 +158,7 @@ export default function UserLanding() {
           </Grid>
 
           {/* Neckbands */}
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid>
             <Paper
               elevation={5}
               sx={{
@@ -195,7 +195,7 @@ export default function UserLanding() {
           sx={{ maxWidth: "1100px", mx: "auto" }}
         >
           {/* Icon / Image */}
-          <Grid item xs={12} md={6}>
+          <Grid>
             <VisibilityIcon
               sx={{
                 fontSize: 180,
@@ -208,7 +208,7 @@ export default function UserLanding() {
           </Grid>
 
           {/* Text */}
-          <Grid item xs={12} md={6}>
+          <Grid>
             <Typography variant="h4" fontWeight="bold" mb={2}>
               Introducing the{" "}
               <Box component="span" sx={{ color: "#2563eb" }}>

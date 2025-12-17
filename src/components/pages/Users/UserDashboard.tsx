@@ -68,18 +68,18 @@ const ourProducts = [
     strikePrice: "Rs 4,999",
     discount: "66%",
     rating: 4.8,
-    ratingCount: 124, // optional
+    ratingCount: 124,
     colors: ["#000", "#0FF", "#00F"],
     moreColors: 1,
   },
   {
     title: "Earbuds Jazz Pro",
-    image: Earbud3, // Replace with your generated product image later
+    image: Earbud3,
     price: "Rs 1,699",
     strikePrice: "Rs 4,999",
     discount: "66%",
     rating: 4.8,
-    ratingCount: 124, // optional
+    ratingCount: 124,
     colors: ["#000", "#0FF", "#00F"],
     moreColors: 1,
   },
@@ -256,7 +256,7 @@ export default function UserDashboard() {
 
         <Grid container spacing={3} justifyContent="center">
           {ourProducts.map((item, i) => (
-            <Grid item xs={12} sm={6} md={2} key={i}>
+            <Grid key={i}>
               <ProductCard
                 title={item.title}
                 image={item.image}
@@ -306,7 +306,7 @@ export default function UserDashboard() {
         {/* 6 cards per row on desktop */}
         <Grid container spacing={3} justifyContent="center">
           {ourProducts.map((item, i) => (
-            <Grid item xs={12} sm={6} md={2} key={i}>
+            <Grid key={i}>
               <ProductCard
                 title={item.title}
                 image={item.image}
@@ -396,7 +396,7 @@ export default function UserDashboard() {
 
         <Grid container spacing={4} justifyContent="center">
           {clientLogos.map((logo, i) => (
-            <Grid item key={i}>
+            <Grid key={i}>
               <Paper
                 elevation={3}
                 sx={{

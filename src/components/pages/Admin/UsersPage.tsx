@@ -73,7 +73,7 @@ export default function UsersPage() {
   const addUser = () => {
     if (!newUser.name || !newUser.email) return;
 
-    setUsers((prev) => [
+    setUsers((prev:any) => [
       ...prev,
       { id: Date.now(), verified: false, ...newUser },
     ]);
@@ -82,17 +82,17 @@ export default function UsersPage() {
     setOpenAdd(false);
   };
 
-  const verifyUser = (id) => {
-    setUsers((prev) =>
+  const verifyUser = (id:any) => {
+    setUsers((prev: any[]) =>
       prev.map((u) => (u.id === id ? { ...u, verified: true } : u))
     );
   };
 
-  const deleteUser = (id) => {
-    setUsers((prev) => prev.filter((u) => u.id !== id));
+  const deleteUser = (id: any) => {
+    setUsers((prev: any[]) => prev.filter((u) => u.id !== id));
   };
 
-  const canDeleteUser = (targetUser) => {
+  const canDeleteUser = (targetUser: { id: number; }) => {
     return CURRENT_USER_ID === DEFAULT_ADMIN_ID && targetUser.id !== DEFAULT_ADMIN_ID;
   };
 
@@ -149,7 +149,7 @@ export default function UsersPage() {
         {users.length === 0 ? (
           <Typography>No users found.</Typography>
         ) : (
-          users.map((user) => (
+          users.map((user: { id: any; role?: any; name?: any; email?: any; verified?: any; }) => (
             <Paper
               key={user.id}
               sx={{

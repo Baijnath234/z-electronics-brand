@@ -64,7 +64,7 @@ export default function ReportsPage() {
       {/* SUMMARY CARDS */}
       <Grid container spacing={2} mb={3}>
         {/* Total Products */}
-        <Grid item xs={12} md={4}>
+        <Grid >
           <Paper
             sx={{
               p: 3,
@@ -86,7 +86,7 @@ export default function ReportsPage() {
         </Grid>
 
         {/* Stock Count */}
-        <Grid item xs={12} md={4}>
+        <Grid >
           <Paper
             sx={{
               p: 3,
@@ -108,7 +108,7 @@ export default function ReportsPage() {
         </Grid>
 
         {/* Items Sold */}
-        <Grid item xs={12} md={4}>
+        <Grid >
           <Paper
             sx={{
               p: 3,

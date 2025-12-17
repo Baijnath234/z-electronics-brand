@@ -45,11 +45,11 @@ export default function OrdersPage() {
     localStorage.setItem("completed_orders", JSON.stringify(completedOrders));
   }, [completedOrders]);
 
-  const completeOrder = (id) => {
-    const order = orders.find((o) => o.id === id);
+  const completeOrder = (id:number) => {
+    const order:any = orders.find((o) => o.id === id);
 
     setOrders((prev) => prev.filter((o) => o.id !== id));
-    setCompletedOrders((prev) => [...prev, order]);
+    setCompletedOrders((prev:any) => [...prev, order]);
 
     setInvoiceOrder(order);
     setOpenInvoice(true);
@@ -179,7 +179,7 @@ export default function OrdersPage() {
         {completedOrders.length === 0 ? (
           <Typography>No completed orders yet.</Typography>
         ) : (
-          completedOrders.map((order) => (
+          completedOrders.map((order:any) => (
             <Paper
               key={order.id}
               sx={{
