@@ -67,7 +67,7 @@ const ClientPage = () => {
 
         <Grid container spacing={2}>
           {sampleClients.map((client:any) => (
-            <Grid item xs={12} sm={6} md={4} key={client.id}>
+            <Grid key={client.id}>
               <Card elevation={3}>
                 <CardMedia
                   component="img"
@@ -133,7 +133,7 @@ const ClientPage = () => {
 
             <DialogContent dividers>
               <Grid container spacing={3}>
-                <Grid item xs={12} md={5}>
+                <Grid>
                   <Box
                     component="img"
                     src={selectedClient.logo}
@@ -146,7 +146,7 @@ const ClientPage = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12} md={7}>
+                <Grid>
                   <Stack spacing={2}>
                     <Typography variant="body1">
                       <strong>Location:</strong> {selectedClient.location}

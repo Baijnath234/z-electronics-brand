@@ -136,7 +136,7 @@ const ProductPage = () => {
         {/* Grid of products */}
         <Grid container spacing={3}>
           {filtered.map((product:any) => (
-            <Grid item xs={12} sm={6} md={4} key={product.id}>
+            <Grid key={product.id}>
               <Card
                 sx={{
                   height: "100%",
@@ -212,7 +212,7 @@ const ProductPage = () => {
           ))}
 
           {filtered.length === 0 && (
-            <Grid item xs={12}>
+            <Grid>
               <Typography variant="body1">No products found.</Typography>
             </Grid>
           )}
@@ -230,7 +230,7 @@ const ProductPage = () => {
         {selectedProduct && (
           <>
             <DialogTitle sx={{ m: 0, p: 2 }} id="product-dialog-title">
-              <Typography variant="h6">{selectedProduct.title}</Typography>
+              <Typography variant="h6">{selectedProduct}</Typography>
 
               <IconButton
                 aria-label="close"
@@ -247,11 +247,11 @@ const ProductPage = () => {
 
             <DialogContent dividers>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid >
                   <Box
                     component="img"
-                    src={selectedProduct.image}
-                    alt={selectedProduct.title}
+                    src={selectedProduct}
+                    alt={selectedProduct}
                     sx={{
                       width: "100%",
                       maxHeight: 400,
@@ -261,36 +261,36 @@ const ProductPage = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
                     Category:{" "}
                     <strong style={{ textTransform: "capitalize" }}>
-                      {selectedProduct.category}
+                      {selectedProduct}
                     </strong>
                   </Typography>
 
                   <Typography variant="h5" sx={{ mb: 1 }}>
-                    ₹{selectedProduct.price.toFixed(2)}
+                    ₹{selectedProduct}
                   </Typography>
 
                   <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
                     <Rating
-                      name={`dialog-rating-${selectedProduct.id}`}
-                      value={selectedProduct.rating ?? 0}
+                      name={`dialog-rating-${selectedProduct}`}
+                      value={selectedProduct ?? 0}
                       precision={0.1}
                       readOnly
                     />
                     <Typography variant="body2" color="text.secondary">
-                      {selectedProduct.rating ? `${selectedProduct.rating} / 5` : ""}
+                      {selectedProduct ? `${selectedProduct} / 5` : ""}
                     </Typography>
                   </Stack>
 
                   <Typography variant="body2" sx={{ mb: 2 }}>
-                    {selectedProduct.shortDesc}
+                    {selectedProduct}
                   </Typography>
 
                   <Typography variant="body2" color="text.secondary">
-                    {selectedProduct.description}
+                    {selectedProduct}
                   </Typography>
                 </Grid>
               </Grid>
@@ -299,7 +299,7 @@ const ProductPage = () => {
             <DialogActions>
               <Button
                 onClick={() => {
-                  alert(`Added "${selectedProduct.title}" to cart (demo).`);
+                  alert(`Added "${selectedProduct}" to cart (demo).`);
                 }}
                 variant="contained"
               >

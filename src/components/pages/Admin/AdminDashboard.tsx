@@ -65,7 +65,7 @@ export default function AdminDashboard() {
 
       {/* SUMMARY CARDS */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -87,7 +87,7 @@ export default function AdminDashboard() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -135,7 +135,7 @@ export default function AdminDashboard() {
       {/* CHARTS SECTION */}
       <Grid container spacing={3}>
         {/* PIE CHART */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -161,7 +161,7 @@ export default function AdminDashboard() {
                 cx="50%"
                 cy="50%"
                 outerRadius={80}
-                label={({ name, percent }) =>
+                label={({ name, percent }:any) =>
                   `${name} ${(percent * 100).toFixed(0)}%`
                 }
               >
@@ -174,7 +174,7 @@ export default function AdminDashboard() {
         </Grid>
 
         {/* BAR CHART */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,
@@ -201,7 +201,7 @@ export default function AdminDashboard() {
         </Grid>
 
         {/* LINE CHART */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Paper
             sx={{
               p: 3,

@@ -209,7 +209,7 @@ export default function UserLogin() {
         <DialogContent dividers sx={{ p: 4 }}>
           <Grid container spacing={3}>
             {/* FULL NAME */}
-            <Grid item xs={12} sm={6}>
+            <Grid>
               <TextField
                 name="username"
                 onChange={handleChange}
@@ -219,7 +219,7 @@ export default function UserLogin() {
             </Grid>
 
             {/* EMAIL */}
-            <Grid item xs={12} sm={6}>
+            <Grid>
               <TextField
                 name="email"
                 onChange={handleChange}
@@ -230,7 +230,7 @@ export default function UserLogin() {
             </Grid>
 
             {/* BIRTHDAY */}
-            <Grid item xs={12} sm={6}>
+            <Grid>
               <TextField
                 name="birthday"
                 onChange={handleChange}
@@ -242,9 +242,9 @@ export default function UserLogin() {
             </Grid>
 
             {/* MOBILE + OTP BUTTON */}
-            <Grid item xs={12} sm={6}>
+            <Grid>
               <Grid container spacing={1}>
-                <Grid item xs={8}>
+                <Grid>
                   <TextField
                     name="mobile"
                     onChange={handleChange}
@@ -253,7 +253,7 @@ export default function UserLogin() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid>
                   <Button
                     variant="contained"
                     fullWidth
@@ -272,7 +272,7 @@ export default function UserLogin() {
 
             {/* OTP FIELD (Only if requested) */}
             {otpRequested && (
-              <Grid item xs={12}>
+              <Grid>
                 <TextField
                   name="otp"
                   onChange={handleChange}
@@ -283,7 +283,7 @@ export default function UserLogin() {
             )}
 
             {/* PASSWORD */}
-            <Grid item xs={12}>
+            <Grid>
               <TextField
                 name="password"
                 onChange={handleChange}

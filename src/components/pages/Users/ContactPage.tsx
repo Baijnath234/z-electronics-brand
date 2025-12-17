@@ -72,7 +72,7 @@ const ContactPage = () => {
 
           <Grid container spacing={2}>
             {/* Left: Company Contact Details */}
-            <Grid item xs={12} md={5}>
+            <Grid >
               <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
                 <Typography variant="h6" sx={{ mb: 2 }} fontWeight="bold">
                   Company Information
@@ -126,7 +126,7 @@ const ContactPage = () => {
             </Grid>
 
             {/* Right: Contact Form */}
-            <Grid item xs={12} md={7}>
+            <Grid>
               <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
                 <Typography variant="h6" sx={{ mb: 2 }} fontWeight="bold">
                   Send Us a Message
