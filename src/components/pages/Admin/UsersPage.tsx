@@ -11,7 +11,7 @@ import {
   TextField,
   Chip,
   Avatar,
-  Divider,
+  // Divider,
 } from "@mui/material";
 
 import VerifiedIcon from "@mui/icons-material/Verified";
