@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Paper, Button, Rating } from "@mui/material";
+import { Box, Typography, Paper, Rating } from "@mui/material";
 
 export default function ProductCard({
   title,

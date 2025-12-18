@@ -6,7 +6,7 @@ import {
   Container,
   Grid,
   Card,
-  CardMedia,
+  // CardMedia,
   CardContent,
   CardActions,
   Typography,
