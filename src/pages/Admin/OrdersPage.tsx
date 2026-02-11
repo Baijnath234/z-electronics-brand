@@ -15,13 +15,16 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import { useEffect, useState } from "react";
 
-export default function OrdersPage() {
-  const [completedOrders, setCompletedOrders] = useState(() => {
-    const saved = localStorage.getItem("completed_orders");
-    return saved ? JSON.parse(saved) : [];
-  });
+type Order = {
+  id: number;
+  product: string;
+  customer: string;
+  quantity: number;
+  price: number;
+};
 
-  const [orders, setOrders] = useState([
+export default function OrdersPage() {
+  const [orders, setOrders] = useState<Order[]>([
     {
       id: 1,
       product: "Apple iPhone 15",
@@ -38,19 +41,27 @@ export default function OrdersPage() {
     },
   ]);
 
-  const [invoiceOrder, setInvoiceOrder] = useState(null);
-  const [openInvoice, setOpenInvoice] = useState(false);
+  const [completedOrders, setCompletedOrders] = useState<Order[]>(() => {
+    const saved = localStorage.getItem("completed_orders");
+    return saved ? (JSON.parse(saved) as Order[]) : [];
+  });
+
+  const [invoiceOrder, setInvoiceOrder] = useState<Order | null>(null);
+  const [openInvoice, setOpenInvoice] = useState<boolean>(false);
 
   useEffect(() => {
-    localStorage.setItem("completed_orders", JSON.stringify(completedOrders));
+    localStorage.setItem(
+      "completed_orders",
+      JSON.stringify(completedOrders)
+    );
   }, [completedOrders]);
 
-  const completeOrder = (id:number) => {
-    const order:any = orders.find((o) => o.id === id);
+  const completeOrder = (id: number) => {
+    const order = orders.find((o) => o.id === id);
+    if (!order) return;
 
     setOrders((prev) => prev.filter((o) => o.id !== id));
-    setCompletedOrders((prev:any) => [...prev, order]);
-
+    setCompletedOrders((prev) => [...prev, order]);
     setInvoiceOrder(order);
     setOpenInvoice(true);
   };
@@ -77,13 +88,16 @@ export default function OrdersPage() {
       type: "array",
     });
 
-    const file = new Blob([excelBuffer], { type: "application/octet-stream" });
+    const file = new Blob([excelBuffer], {
+      type: "application/octet-stream",
+    });
+
     saveAs(file, `Invoice_Order_${invoiceOrder.id}.xlsx`);
   };
 
   return (
     <Box>
-      {/* HEADER WITH GRADIENT */}
+      {/* HEADER */}
       <Box
         sx={{
           background: "linear-gradient(135deg, #4C6EF5, #15AABF)",
@@ -97,81 +111,61 @@ export default function OrdersPage() {
         <Typography variant="h4" fontWeight="bold">
           Orders Management
         </Typography>
-        <Typography sx={{ opacity: 0.8 }} mt={1}>
+        <Typography sx={{ opacity: 0.85 }}>
           Track active orders, complete tasks, and export invoices.
         </Typography>
       </Box>
 
       {/* ACTIVE ORDERS */}
-      <Paper
-        sx={{
-          p: 3,
-          mb: 4,
-          borderRadius: 3,
-          boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-        }}
-      >
+      <Paper sx={{ p: 3, mb: 4, borderRadius: 3 }}>
         <Typography variant="h6" fontWeight="bold" mb={2}>
           Active Orders
         </Typography>
 
-        <Box>
-          {orders.length === 0 ? (
-            <Typography>No active orders.</Typography>
-          ) : (
-            orders.map((order) => (
-              <Paper
-                key={order.id}
-                sx={{
-                  p: 2,
-                  mb: 2,
-                  borderRadius: 2,
-                  transition: "0.2s",
-                  "&:hover": {
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-                    transform: "translateY(-3px)",
-                  },
-                }}
-              >
-                <Stack direction="row" justifyContent="space-between">
-                  <Box>
-                    <Typography fontWeight="bold" fontSize={18}>
-                      {order.product}
-                    </Typography>
-                    <Typography color="gray">Customer: {order.customer}</Typography>
-                    <Typography>Qty: {order.quantity}</Typography>
-                    <Typography>Price: ${order.price}</Typography>
-                  </Box>
+        {orders.length === 0 ? (
+          <Typography>No active orders.</Typography>
+        ) : (
+          orders.map((order) => (
+            <Paper
+              key={order.id}
+              sx={{
+                p: 2,
+                mb: 2,
+                borderRadius: 2,
+                "&:hover": {
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              <Stack direction="row" justifyContent="space-between">
+                <Box>
+                  <Typography fontWeight="bold">
+                    {order.product}
+                  </Typography>
+                  <Typography color="text.secondary">
+                    Customer: {order.customer}
+                  </Typography>
+                  <Typography>Qty: {order.quantity}</Typography>
+                  <Typography>Price: ${order.price}</Typography>
+                </Box>
 
-                  <Button
-                    variant="contained"
-                    color="success"
-                    startIcon={<CheckCircleIcon />}
-                    onClick={() => completeOrder(order.id)}
-                    sx={{
-                      height: 40,
-                      px: 3,
-                      fontWeight: "bold",
-                      boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
-                    }}
-                  >
-                    Complete
-                  </Button>
-                </Stack>
-              </Paper>
-            ))
-          )}
-        </Box>
+                <Button
+                  variant="contained"
+                  color="success"
+                  startIcon={<CheckCircleIcon />}
+                  onClick={() => completeOrder(order.id)}
+                >
+                  Complete
+                </Button>
+              </Stack>
+            </Paper>
+          ))
+        )}
       </Paper>
 
       {/* COMPLETED ORDERS */}
-      <Paper
-        sx={{
-          p: 3,
-          borderRadius: 3,
-          boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-        }}
-      >
+      <Paper sx={{ p: 3, borderRadius: 3 }}>
         <Typography variant="h6" fontWeight="bold" mb={2}>
           Completed Orders
         </Typography>
@@ -179,7 +173,7 @@ export default function OrdersPage() {
         {completedOrders.length === 0 ? (
           <Typography>No completed orders yet.</Typography>
         ) : (
-          completedOrders.map((order:any) => (
+          completedOrders.map((order) => (
             <Paper
               key={order.id}
               sx={{
@@ -187,7 +181,6 @@ export default function OrdersPage() {
                 mb: 2,
                 background: "#f8f9fa",
                 borderRadius: 2,
-                boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
               }}
             >
               <Typography fontWeight="bold">{order.product}</Typography>
@@ -199,86 +192,50 @@ export default function OrdersPage() {
         )}
       </Paper>
 
-      {/* INVOICE MODAL */}
+      {/* INVOICE DIALOG */}
       <Dialog
         open={openInvoice}
         onClose={() => setOpenInvoice(false)}
         fullWidth
         maxWidth="sm"
-        sx={{
-          "& .MuiPaper-root": {
-            borderRadius: 3,
-            p: 1,
-            boxShadow: "0 6px 30px rgba(0,0,0,0.25)",
-          },
-        }}
       >
         <DialogTitle
-          sx={{
-            fontWeight: "bold",
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-          }}
+          sx={{ display: "flex", alignItems: "center", gap: 1 }}
         >
           <ReceiptLongIcon /> Invoice
         </DialogTitle>
 
-        <DialogContent
-          sx={{
-            pb: 1,
-            fontSize: 16,
-          }}
-        >
+        <DialogContent>
           {invoiceOrder && (
             <>
-              <Typography fontWeight="bold">Order ID:</Typography>
-              <Typography mb={1}>{invoiceOrder.id}</Typography>
+              <Typography><b>Order ID:</b> {invoiceOrder.id}</Typography>
+              <Typography><b>Customer:</b> {invoiceOrder.customer}</Typography>
+              <Typography><b>Product:</b> {invoiceOrder.product}</Typography>
+              <Typography><b>Quantity:</b> {invoiceOrder.quantity}</Typography>
+              <Typography><b>Unit Price:</b> ${invoiceOrder.price}</Typography>
 
-              <Typography fontWeight="bold">Customer:</Typography>
-              <Typography mb={1}>{invoiceOrder.customer}</Typography>
-
-              <Typography fontWeight="bold">Product:</Typography>
-              <Typography mb={1}>{invoiceOrder.product}</Typography>
-
-              <Typography fontWeight="bold">Quantity:</Typography>
-              <Typography mb={1}>{invoiceOrder.quantity}</Typography>
-
-              <Typography fontWeight="bold">Unit Price:</Typography>
-              <Typography mb={2}>${invoiceOrder.price}</Typography>
-
-              {/* TOTAL PRICE BOX */}
               <Box
                 sx={{
                   mt: 2,
                   p: 2,
-                  borderRadius: 2,
                   textAlign: "center",
-                  background: "linear-gradient(135deg, #4C6EF5, #15AABF)",
+                  borderRadius: 2,
+                  background:
+                    "linear-gradient(135deg, #4C6EF5, #15AABF)",
                   color: "white",
                   fontWeight: "bold",
-                  fontSize: 18,
                 }}
               >
-                Total: ${invoiceOrder.quantity * invoiceOrder.price}
+                Total: $
+                {invoiceOrder.price * invoiceOrder.quantity}
               </Box>
             </>
           )}
         </DialogContent>
 
-        <DialogActions sx={{ p: 2 }}>
-          <Button variant="outlined" onClick={() => setOpenInvoice(false)}>
-            Close
-          </Button>
-
-          <Button
-            variant="contained"
-            onClick={exportToExcel}
-            sx={{
-              background: "#4C6EF5",
-              "&:hover": { background: "#3B5BDB" },
-            }}
-          >
+        <DialogActions>
+          <Button onClick={() => setOpenInvoice(false)}>Close</Button>
+          <Button variant="contained" onClick={exportToExcel}>
             Export to Excel
           </Button>
         </DialogActions>

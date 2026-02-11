@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Paper, Button, TextField, Card } from "@mui/material";
+import { Box, Typography, Grid, Paper, Button, TextField } from "@mui/material";
 import UserFooter from "../../layouts/UserFooter";
 import web1 from "../../assets/images/coming-soon.png";
 import web2 from "../../assets/images/Grotta.com & in.png";
