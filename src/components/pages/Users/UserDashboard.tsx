@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid, Paper, Button, TextField } from "@mui/material";
 import UserFooter from "../../layouts/UserFooter";
 import web1 from "../../../assets/images/Electronic.png";
@@ -23,30 +22,30 @@ import Earbud3 from "../../../assets/images/Earbud3.png";
 const carouselImages = [web1, web2, web3];
 
 // Products
-const topProducts = [
-  {
-    name: "Wave Earbuds Pro",
-    img: "https://cdn-icons-png.flaticon.com/512/4470/4470333.png",
-  },
-  {
-    name: "Wave Neckband X",
-    img: "https://cdn-icons-png.flaticon.com/512/4470/4470221.png",
-  },
-  {
-    name: "Wave Headphones Max",
-    img: "https://cdn-icons-png.flaticon.com/512/10094/10094667.png",
-  },
-];
+// const topProducts = [
+//   {
+//     name: "Wave Earbuds Pro",
+//     img: "https://cdn-icons-png.flaticon.com/512/4470/4470333.png",
+//   },
+//   {
+//     name: "Wave Neckband X",
+//     img: "https://cdn-icons-png.flaticon.com/512/4470/4470221.png",
+//   },
+//   {
+//     name: "Wave Headphones Max",
+//     img: "https://cdn-icons-png.flaticon.com/512/10094/10094667.png",
+//   },
+// ];
 
 const ourProducts = [
   {
     title: "Earbuds Jazz Pro",
-    image: Headphone, // Replace with your generated product image later
+    image: Headphone,
     price: "Rs 1,699",
     strikePrice: "Rs 4,999",
     discount: "66%",
     rating: 4.8,
-    ratingCount: 124, // optional
+    ratingCount: 124,
     colors: ["#000", "#0FF", "#00F"],
     moreColors: 1,
   },

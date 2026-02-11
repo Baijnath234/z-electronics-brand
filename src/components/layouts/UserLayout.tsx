@@ -9,13 +9,8 @@ import {
   Avatar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HeadphonesIcon from "@mui/icons-material/Headphones";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import logo from "../../assets/images/logo-preview-black.png";
 
 export default function UserLayout() {
