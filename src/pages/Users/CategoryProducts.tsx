@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
-import ProductCard from "./comman/ProductCard";
+import ProductCard from "../../components/comman/ProductCard";
 import type { Key } from "react";
 import Headphone from "../../assets/images/image1.png"
 import image3 from "../../assets/images/image2.png"

@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import ProductCard from "./comman/ProductCard";
+import ProductCard from "../../components/comman/ProductCard";
 import { products } from "../../data/products";
 
 export default function ProductPage() {

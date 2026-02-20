@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 // import UserLanding from "../components/pages/Users/UserLanding";
-import UserLogin from "../pages/Users/UserLogin";
+import UserLogin from "../pages/auth/UserLogin";
 import UserDashboard from "../pages/Users/UserDashboard";
-import UserLayout from "../layouts/UserLayout";
+import UserLayout from "../components/layouts/UserLayout";
 import ProductPage from "../pages/Users/ProductPage";
 import ClientPage from "../pages/Users/ClientPage";
 import ContactPage from "../pages/Users/ContactPage";

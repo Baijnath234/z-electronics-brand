@@ -1,9 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+export type Role = "admin" | "manager" | "user";
+
 type User = {
   id: string;
   name: string;
   email: string;
+  role: Role; // ✅ ADD ROLE
 };
 
 type AuthContextType = {

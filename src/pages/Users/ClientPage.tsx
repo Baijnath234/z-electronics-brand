@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserFooter from "../../layouts/UserFooter";
+import UserFooter from "../../components/layouts/UserFooter";
 
 import {
   Container,

@@ -1,5 +1,6 @@
-import { Box, Typography, Grid, Paper, Button, TextField } from "@mui/material";
-import UserFooter from "../../layouts/UserFooter";
+import { Box, Typography, Paper, Button, TextField } from "@mui/material";
+import Grid from '@mui/material/Grid';
+import UserFooter from "../../components/layouts/UserFooter";
 import web1 from "../../assets/images/coming-soon.png";
 import web2 from "../../assets/images/Grotta.com & in.png";
 import web3 from "../../assets/images/slogan.png";
@@ -7,7 +8,7 @@ import Banner from "../../assets/images/Grotta banner.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from "./comman/ProductCard";
+import ProductCard from "../../components/comman/ProductCard";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import ReceiptIcon from "@mui/icons-material/Receipt";

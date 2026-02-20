@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 import web1 from "../../assets/images/image1.png";
-import UserFooter from "../../layouts/UserFooter";
+import UserFooter from "../../components/layouts/UserFooter";
 
 const Aboutpage = () => {
   return (
