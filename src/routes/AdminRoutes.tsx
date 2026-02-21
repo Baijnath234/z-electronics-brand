@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import AdminLanding from "../components/pages/Admin/AdminLanding";
-import AdminLogin from "../components/pages/Admin/AdminLogin";
-import AdminDashboard from "../components/pages/Admin/AdminDashboard";
+import AdminLanding from "../pages/Admin/AdminLanding";
+import AdminLogin from "../pages/Admin/AdminLogin";
+import AdminDashboard from "../pages/Admin/AdminDashboard";
 import AdminLayout from "../components/layouts/AdminLayout";
 
 // NEW PAGES
-import ProductPage from "../components/pages/Admin/ProductPage";
-import OrdersPage from "../components/pages/Admin/OrdersPage";
-import UsersPage from "../components/pages/Admin/UsersPage";
-import ReportsPage from "../components/pages/Admin/ReportsPage";
-import SettingPage from "../components/pages/Admin/SettingPage";
-import ProfilePage from "../components/pages/Admin/ProfilePage";
+import ProductPage from "../pages/Admin/ProductPage";
+import OrdersPage from "../pages/Admin/OrdersPage";
+import UsersPage from "../pages/Admin/UsersPage";
+import ReportsPage from "../pages/Admin/ReportsPage";
+import SettingPage from "../pages/Admin/SettingPage";
+import ProfilePage from "../pages/Admin/ProfilePage";
 
 function AdminRoutes() {
   return (
@@ -26,7 +26,7 @@ function AdminRoutes() {
         <Route path="users" element={<UsersPage />} />
         <Route path="reports" element={<ReportsPage />} />
         <Route path="settings" element={<SettingPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+        <Route path="profile" element={<ProfilePage />} /> 
       </Route>
     </Routes>
   );

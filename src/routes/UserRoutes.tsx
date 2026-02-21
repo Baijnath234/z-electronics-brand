@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 // import UserLanding from "../components/pages/Users/UserLanding";
-import UserLogin from "../components/pages/Users/UserLogin";
-import UserDashboard from "../components/pages/Users/UserDashboard";
+import UserLogin from "../pages/auth/UserLogin";
+import UserDashboard from "../pages/Users/UserDashboard";
 import UserLayout from "../components/layouts/UserLayout";
-import ProductPage from "../components/pages/Users/ProductPage";
-import ClientPage from "../components/pages/Users/ClientPage";
-import ContactPage from "../components/pages/Users/ContactPage";
-import Aboutpage from "../components/pages/Users/Aboutpage";
+import ProductPage from "../pages/Users/ProductPage";
+import ClientPage from "../pages/Users/ClientPage";
+import ContactPage from "../pages/Users/ContactPage";
+import Aboutpage from "../pages/Users/Aboutpage";
+import CategoryProducts from "../pages/Users/CategoryProducts";
+import ProductDetails from "../pages/Users/ProductDetails";
+import CartPage from "../pages/Users/CartPage";
 
 function UserRoutes() {
   return (
@@ -21,6 +24,10 @@ function UserRoutes() {
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/client" element={<ClientPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/category/:category" element={<CategoryProducts />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<CartPage />} /> 
+
       </Route>
     </Routes>
   );

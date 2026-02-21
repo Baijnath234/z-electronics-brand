@@ -11,7 +11,7 @@ export default function UserFooter() {
         mt: 6,
       }}
     >
-      <Typography>© {new Date().getFullYear()} Z-Electronic.com — Connect & Grow</Typography>
+      <Typography>© {new Date().getFullYear()} Grotta.com — Be confidante with Grotta</Typography>
       <Typography sx={{ fontSize: "13px", mt: 1 }}>
         Designed with us for better experience
       </Typography>
