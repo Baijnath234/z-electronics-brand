@@ -1,17 +1,16 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import ProductCard from "../../components/comman/ProductCard";
-import type { Key } from "react";
-import Headphone from "../../assets/images/image1.png"
-import image3 from "../../assets/images/image2.png"
-import image7 from "../../assets/images/image5.png"
-import image4 from "../../assets/images/image4.png"
-import image8 from "../../assets/images/image9.png"
+import Headphone from "../../assets/images/image1.png";
+import image3 from "../../assets/images/image2.png";
+import image7 from "../../assets/images/image5.png";
+import image4 from "../../assets/images/image4.png";
+import image8 from "../../assets/images/image9.png";
 
 export const ourProducts = [
   {
     id: 1,
-    title: "White Tshirt men",
+    title: "linen White Tshirt",
     image: Headphone,
     images: [Headphone, image3, image7],
     price: "₹999",
@@ -26,7 +25,7 @@ export const ourProducts = [
   },
   {
     id: 2,
-    title: "Blue Denim Jeans",
+    title: "linen black kurta",
     image: image4,
     images: [image4, image8],
     price: "₹2,499",
@@ -34,7 +33,20 @@ export const ourProducts = [
     discount: "50%",
     rating: 4.6,
     ratingCount: 98,
-    category: "Jeans",
+    category: "Kurta",
+    description: "Slim-fit stretchable denim jeans",
+  },
+  {
+    id: 3,
+    title: "linen white shirt",
+    image: image4,
+    images: [image4, image8],
+    price: "₹2,499",
+    strikePrice: "₹4,999",
+    discount: "50%",
+    rating: 4.6,
+    ratingCount: 98,
+    category: "shirt",
     description: "Slim-fit stretchable denim jeans",
   },
 ];
@@ -44,7 +56,7 @@ export default function CategoryProducts() {
   const navigate = useNavigate();
 
   const filteredProducts = ourProducts.filter(
-    (p) => p.category.toLowerCase() === category
+    (p) => p.category.toLowerCase() === category?.toLowerCase()
   );
 
   return (
@@ -53,15 +65,24 @@ export default function CategoryProducts() {
         {category?.toUpperCase()}
       </Typography>
 
-      <Grid container spacing={3}>
-        {filteredProducts.map((item: { id: Key | null | undefined; }) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-            <Box onClick={() => navigate(`/product/${item.id}`)}>
-              <ProductCard {...item} />
-            </Box>
-          </Grid>
+      <Box
+        sx={{
+          display: "grid",
+          gap: 3,
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(4, 1fr)",
+          },
+        }}
+      >
+        {filteredProducts.map((item) => (
+          <Box key={item.id} onClick={() => navigate(`/product/${item.id}`)}>
+            <ProductCard {...item} />
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

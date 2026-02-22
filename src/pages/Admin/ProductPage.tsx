@@ -308,10 +308,10 @@ export default function AdminProductPage() {
             value={product.category}
             onChange={handleChange}
           >
-            <MenuItem value="tshirt">T-Shirt</MenuItem>
-            <MenuItem value="jeans">Jeans</MenuItem>
-            <MenuItem value="shoes">Shoes</MenuItem>
-            <MenuItem value="electronics">Electronics</MenuItem>
+            <MenuItem value="shirt">Shirt</MenuItem>
+            <MenuItem value="kurta">Kurta</MenuItem>
+            <MenuItem value="t-shirt">T-Shirt</MenuItem>
+            <MenuItem value="trouser">Trouser</MenuItem>
           </TextField>
 
           <TextField

@@ -1,8 +1,8 @@
 import Headphone from "../assets/images/image1.png";
-import image3 from "../assets/images/image3.png";
+import image3 from "../assets/images/image13.png";
 import image4 from "../assets/images/image4.png";
-import image7 from "../assets/images/image7.png";
-import image8 from "../assets/images/Damin.png";
+import image7 from "../assets/images/image1.png";
+import image8 from "../assets/images/image11.png";
 
 export const products = [
   {

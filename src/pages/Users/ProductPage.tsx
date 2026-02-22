@@ -1,40 +1,40 @@
-import { Box, Typography, Grid } from "@mui/material";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../../components/comman/ProductCard";
 import { products } from "../../data/products";
 
 export default function ProductPage() {
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const category = searchParams.get("category");
-
-  const filteredProducts = category
-    ? products.filter(
-      (p) => p.category === category.toLowerCase()
-    )
-    : products;
-
   return (
-    <Box sx={{ maxWidth: 1400, mx: "auto", px: 2, mt: 15 }}>
-      <Typography
-        variant="h4"
-        fontWeight={700}
-        textAlign="center"
-        mb={4}
-      >
-        {category ? category.toUpperCase() : "All Products"}
+    <Box sx={{ px: 3, mt: 12 }}>
+      <Typography variant="h4" fontWeight={700} mb={3}>
+        All Products
       </Typography>
 
-      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
-        {filteredProducts.map((item) => (
-          <Grid xs={12} sm={6} md={4} lg={3} key={item.id}>
-            <Box onClick={() => navigate(`/product/${item.id}`)}>
-              <ProductCard {...item} />
-            </Box>
-          </Grid>
+      {/* PRODUCTS GRID */}
+      <Box
+        sx={{
+          display: "grid",
+          gap: 3,
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(4, 1fr)",
+          },
+        }}
+      >
+        {products.map((item) => (
+          <Box
+            key={item.id}
+            sx={{ cursor: "pointer" }}
+            onClick={() => navigate(`/product/${item.id}`)}
+          >
+            <ProductCard {...item} />
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

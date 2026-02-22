@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Box,
   Typography,
-  Grid,
   Button,
   Divider,
   IconButton,
@@ -27,64 +26,72 @@ export default function ProductDetails() {
 
   return (
     <Box sx={{ maxWidth: 1300, mx: "auto", px: 2, mt: 12 }}>
-      <Grid container spacing={4}>
+      {/* MAIN LAYOUT */}
+      <Box
+        sx={{
+          display: "grid",
+          gap: 4,
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "1fr 1fr",
+          },
+        }}
+      >
         {/* IMAGE GALLERY */}
-        <Grid xs={12} md={6}>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            {/* Thumbnails */}
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              {product.images.map((img, i) => (
-                <Box
-                  key={i}
-                  onClick={() => setSelectedImage(img)}
-                  sx={{
-                    width: 70,
-                    height: 70,
-                    borderRadius: 2,
-                    border:
-                      selectedImage === img
-                        ? "2px solid #1976d2"
-                        : "1px solid #ddd",
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    src={img}
-                    alt=""
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                </Box>
-              ))}
-            </Box>
-
-            {/* Main Image */}
-            <Box
-              sx={{
-                flex: 1,
-                borderRadius: 3,
-                border: "1px solid #eee",
-                p: 2,
-              }}
-            >
-              <img
-                src={selectedImage}
-                alt={product.title}
-                style={{
-                  width: "100%",
-                  height: 400,
-                  objectFit: "contain",
+        <Box sx={{ display: "flex", gap: 2 }}>
+          {/* Thumbnails */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            {product.images.map((img, i) => (
+              <Box
+                key={i}
+                onClick={() => setSelectedImage(img)}
+                sx={{
+                  width: 70,
+                  height: 70,
+                  borderRadius: 2,
+                  border:
+                    selectedImage === img
+                      ? "2px solid #1976d2"
+                      : "1px solid #ddd",
+                  cursor: "pointer",
                 }}
-              />
-            </Box>
+              >
+                <img
+                  src={img}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+            ))}
           </Box>
-        </Grid>
+
+          {/* Main Image */}
+          <Box
+            sx={{
+              flex: 1,
+              borderRadius: 3,
+              border: "1px solid #eee",
+              p: 2,
+            }}
+          >
+            <img
+              src={selectedImage}
+              alt={product.title}
+              style={{
+                width: "100%",
+                height: 400,
+                objectFit: "contain",
+              }}
+            />
+          </Box>
+        </Box>
 
         {/* PRODUCT INFO */}
-        <Grid xs={12} md={6}>
+        <Box>
           <Typography variant="h4" fontWeight={700}>
             {product.title}
           </Typography>
@@ -126,20 +133,21 @@ export default function ProductDetails() {
 
           <Button
             variant="contained"
+            sx={{ mt: 2 }}
             onClick={() =>
               addToCart({
                 id: product.id,
                 name: product.title,
                 price: Number(product.price),
                 image: product.image,
-                quantity: 1,
+                quantity: qty,
               })
             }
           >
             Add to Cart
           </Button>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
 
       {/* DESCRIPTION */}
       <Box sx={{ mt: 6 }}>
